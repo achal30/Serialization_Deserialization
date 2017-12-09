@@ -11,11 +11,12 @@ public class XMLSerialization implements SerStrategy {
 
 	public void processInput(SerializableObject sObject) {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt"));
+			BufferedWriter bw = new BufferedWriter(new FileWriter("output.txt",true));
 			FileProcessor fp = new FileProcessor(bw);
 			fp.write("<DPSerialization>");
 			String line = "";
 			Class cls = sObject.getClass();
+			fp.write("<complexType xsi:type=\"genericCheckpointing.util."+cls.getSimpleName()+"\">");
 			Field[] fields = cls.getDeclaredFields();
 
 			for (Field field : fields) {
@@ -46,7 +47,14 @@ public class XMLSerialization implements SerStrategy {
 					e.printStackTrace();
 					System.exit(1);
 				}
-				if(val instanceof Integer || val instanceof Long){
+				if(val instanceof Integer){
+					Integer value = (Integer) val;
+					if(value >= 10){
+						line = "<"+field.getName()+" xsi:type=\"xsd:"+typeName.toLowerCase()+"\">" + value + "</"+field.getName()+">";
+						fp.write(line);
+					}
+				}
+				else if(val instanceof Long){
 					Long value = (Long) val;
 					if(value >= 10){
 						line = "<"+field.getName()+" xsi:type=\"xsd:"+typeName.toLowerCase()+"\">" + value + "</"+field.getName()+">";
@@ -73,6 +81,11 @@ public class XMLSerialization implements SerStrategy {
 			System.exit(1);
 		}
 
+	}
+	
+	@Override
+	public SerializableObject processInput(FileProcessor fp) {
+		return null;
 	}
 
 }

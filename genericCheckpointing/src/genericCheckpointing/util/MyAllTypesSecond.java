@@ -9,6 +9,9 @@ public class MyAllTypesSecond extends SerializableObject{
 	private short myOtherShortT;
 	private char myCharT;
 	
+	public MyAllTypesSecond() {
+	}
+	
 	public MyAllTypesSecond(double myDoubleTIn, double myOtherDoubleTIn, float myFloatTIn, short myShortTIn, short myOtherShortTIn, char myCharTIn){
 		
 		myDoubleT = myDoubleTIn;
@@ -37,7 +40,7 @@ public class MyAllTypesSecond extends SerializableObject{
 		myOtherDoubleT = myOtherDoubleTIn;
 	}
 	
-	public float getMyFLoatT(){
+	public float getMyFloatT(){
 		return myFloatT;
 	}
 	
@@ -65,7 +68,7 @@ public class MyAllTypesSecond extends SerializableObject{
 		return myCharT;
 	}
 	
-	public void setMyChar(char myCharTIn){
+	public void setMyCharT(char myCharTIn){
 		myCharT = myCharTIn;
 	}
 	
@@ -75,7 +78,7 @@ public class MyAllTypesSecond extends SerializableObject{
 			return false;
 		}
 		MyAllTypesSecond obj = (MyAllTypesSecond) O;
-		if(this.myCharT == obj.getMyCharT() && this.myShortT == obj.myShortT && this.myOtherShortT == obj.getMyOtherShortT() && this.myFloatT == obj.getMyFLoatT() && this.myDoubleT == obj.myDoubleT && this.myOtherDoubleT == obj.myOtherDoubleT ){
+		if(this.myCharT == obj.getMyCharT() && this.myShortT == obj.myShortT && this.myOtherShortT == obj.getMyOtherShortT() && this.myFloatT == obj.getMyFloatT() && this.myDoubleT == obj.myDoubleT && this.myOtherDoubleT == obj.myOtherDoubleT ){
 			return true;
 		}
 		return false;
@@ -84,5 +87,11 @@ public class MyAllTypesSecond extends SerializableObject{
 	@Override
 	public int hashCode(){
 		return (myShortT + myOtherShortT);
+	}
+	
+	@Override
+	public String toString(){
+		String result = "Class: MyAllTypesSecond    Data member values: myShortT = "+myShortT+" myOtherShortT = "+myOtherShortT+" myFloatT = "+myFloatT+" myDoubleT = "+myDoubleT+" myOtherDoubleT = "+myOtherDoubleT+" myCharT = "+myCharT;
+		return result;
 	}
 }

@@ -9,7 +9,8 @@ public class MyAllTypesFirst extends SerializableObject{
 	private boolean myBool;
 	private String myString;
 	
-	
+	public MyAllTypesFirst() {
+	}
 	public MyAllTypesFirst(int myIntIn, int myOtherIntIn, long myLongIn, long myOtherLongIn, boolean myBoolIn, String myStringIn){
 		
 		myInt = myIntIn;
@@ -86,6 +87,11 @@ public class MyAllTypesFirst extends SerializableObject{
 		return (myInt + myOtherInt);
 	}
 	
+	@Override
+	public String toString(){
+		String result = "Class: MyAllTypesFirst   Data member values: myInt = "+myInt+" myOtherInt = "+myOtherInt+" myLong = "+myLong+" myOtherLong = "+myOtherLong+" myBool = "+myBool+" myString = "+myString;
+		return result;
+	}
 	
 }
 

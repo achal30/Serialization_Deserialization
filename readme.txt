@@ -11,21 +11,13 @@ ant -buildfile src/build.xml all
 -----------------------------------------------------------------------
 ## To run by specifying arguments from command line 
 ## We will use this to run your code
-For Debug Level 0(Release):
-ant -buildfile src/build.xml run -Darg0=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/input.txt -Darg1=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/output.txt -Darg2=0
+For Deser Mode:
+ant -buildfile src/build.xml run -Darg0=deser -Darg1=N -Darg2=../input.txt
 
-For Debug Level 1(In_State):
-ant -buildfile src/build.xml run -Darg0=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/input.txt -Darg1=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/output.txt -Darg2=1
+For serDeser Mode:
+ant -buildfile src/build.xml run -Darg0=serDeser -Darg1=N -Darg2=../input.txt
 
-For Debug Level 2(In_Results):
-ant -buildfile src/build.xml run -Darg0=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/input.txt -Darg1=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/output.txt -Darg2=2
-
-For Debug Level 3(Data_Structure):
-ant -buildfile src/build.xml run -Darg0=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/input.txt -Darg1=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/output.txt -Darg2=3
-
-For Debug Level 4(Constructor):
-ant -buildfile src/build.xml run -Darg0=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/input.txt -Darg1=/import/linux/home1/apatel58/cs542/achal_patel_assign_3/airportSecurityState/output.txt -Darg2=4
-
+*NOTE* - Here N is the number of Objects you want to create, so replace N with integer value.
 -----------------------------------------------------------------------
 
 ## To create tarball for submission
@@ -42,12 +34,17 @@ grade of 0 for the involved assignment for my first offense and that I
 will receive a grade of F for the course for any additional
 offense.”
 
-[Date: 12//2017]
+[Date: 12/08/2017]
 
 -----------------------------------------------------------------------
 
 Provide justification for Data Structures used in this assignment.
 
+I have used List as data structure to store the object. It becomes easy to compare using the equals method to check if the old list created 
+is same as the new list generated.
+
+deser will read the input.txt and it will print objects on stdout.
+serDeser will generate output.txt and delete it after everytime you run it.
 
 
 -----------------------------------------------------------------------
